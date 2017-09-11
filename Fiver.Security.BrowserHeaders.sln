@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiver.Security.BrowserHeaders", "Fiver.Security.BrowserHeaders\Fiver.Security.BrowserHeaders.csproj", "{F44D3FE7-059E-4FCA-A126-B0EA90641F55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiver.Security.BrowserHeaders.Middleware", "Fiver.Security.BrowserHeaders.Middleware\Fiver.Security.BrowserHeaders.Middleware.csproj", "{088A4C54-D2F7-43F2-9450-1BB3BE82EA51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F44D3FE7-059E-4FCA-A126-B0EA90641F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F44D3FE7-059E-4FCA-A126-B0EA90641F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F44D3FE7-059E-4FCA-A126-B0EA90641F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{088A4C54-D2F7-43F2-9450-1BB3BE82EA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088A4C54-D2F7-43F2-9450-1BB3BE82EA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088A4C54-D2F7-43F2-9450-1BB3BE82EA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088A4C54-D2F7-43F2-9450-1BB3BE82EA51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
