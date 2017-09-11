@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Fiver.Security.BrowserHeaders.Middleware.Csp
@@ -25,10 +26,16 @@ namespace Fiver.Security.BrowserHeaders.Middleware.Csp
 
         private string GetHeaderValue()
         {
-            var value = "style-src 'self'; script-src 'self'";
+            var value = "";
 
-
+            value += GetDirective("default-src", this.options.Defaults);
+            value += GetDirective("script-src", this.options.Scripts);
+            value += GetDirective("style-src", this.options.Styles);
+            
             return value;
         }
+
+        private string GetDirective(string directive, List<string> sources)
+            => sources.Count > 0 ? $"{directive} {string.Join(" ", sources)}; " : "";
     }
 }

@@ -41,7 +41,15 @@ namespace Fiver.Security.BrowserHeaders
 
             app.UseCsp(builder =>
             {
-                
+                builder.Defaults
+                       .Allow("'self'");
+
+                builder.Scripts
+                       .Allow("'self'")
+                       .Allow("https://ajax.aspnetcdn.com");
+
+                builder.Styles
+                       .Allow("'self'");
             });
 
             app.UseStaticFiles();
