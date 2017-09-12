@@ -20,18 +20,18 @@ namespace Fiver.Security.BrowserHeaders.Middleware.Csp
         public async Task Invoke(HttpContext context)
         {
             context.Response.Headers.Add(HEADER, GetHeaderValue());
-
             await this.next(context);
         }
 
         private string GetHeaderValue()
         {
             var value = "";
-
             value += GetDirective("default-src", this.options.Defaults);
             value += GetDirective("script-src", this.options.Scripts);
             value += GetDirective("style-src", this.options.Styles);
-            
+            value += GetDirective("img-src", this.options.Images);
+            value += GetDirective("font-src", this.options.Fonts);
+            value += GetDirective("media-src", this.options.Media);
             return value;
         }
 

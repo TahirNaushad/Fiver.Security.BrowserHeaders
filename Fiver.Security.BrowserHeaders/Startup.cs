@@ -15,10 +15,11 @@ namespace Fiver.Security.BrowserHeaders
         public void ConfigureServices(
             IServiceCollection services)
         {
-            services.AddMvc(options =>
-            {
-                options.Filters.Add(new RequireHttpsAttribute());
-            });
+            services.AddMvc();
+            //services.AddMvc(options =>
+            //{
+            //    options.Filters.Add(new RequireHttpsAttribute());
+            //});
         }
 
         public void Configure(
@@ -32,24 +33,44 @@ namespace Fiver.Security.BrowserHeaders
             //app.UseRewriter(new RewriteOptions()
             //                    .AddRedirectToHttps(302, 44379));
 
-            app.UseHsts(builder =>
-            {
-                builder.SetMaxAge(MaxAge.FromDays(365))
-                       .IncludePreload()
-                       .IncludeSubdomains();
-            });
+            //app.UseHsts(builder =>
+            //{
+            //    builder.SetMaxAge(MaxAge.FromDays(365))
+            //           .IncludePreload()
+            //           .IncludeSubdomains();
+            //});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    context.Response.Headers.Add(
+            //        "Content-Security-Policy",
+            //        "script-src 'self'; " +
+            //        "style-src 'self'; " +
+            //        "img-src 'self'");
+
+            //    await next();
+            //});
 
             app.UseCsp(builder =>
             {
                 builder.Defaults
-                       .Allow("'self'");
+                       .AllowSelf();
 
                 builder.Scripts
-                       .Allow("'self'")
+                       .AllowSelf()
                        .Allow("https://ajax.aspnetcdn.com");
 
                 builder.Styles
-                       .Allow("'self'");
+                       .AllowSelf()
+                       .Allow("https://ajax.aspnetcdn.com");
+
+                builder.Fonts
+                       .AllowSelf()
+                       .Allow("https://ajax.aspnetcdn.com");
+
+                builder.Images
+                       .AllowSelf()
+                       .Allow("https://media-www-asp.azureedge.net/");
             });
 
             app.UseStaticFiles();
