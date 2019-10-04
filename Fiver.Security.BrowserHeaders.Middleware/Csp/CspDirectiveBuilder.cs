@@ -9,7 +9,7 @@ namespace Fiver.Security.BrowserHeaders.Middleware.Csp
         internal List<string> Sources { get; set; } = new List<string>();
 
         public CspDirectiveBuilder AllowSelf() => Allow("'self'");
-        public CspDirectiveBuilder AllowNone() => Allow("none");
+        public CspDirectiveBuilder AllowNone() => Allow("'none'");
         public CspDirectiveBuilder AllowAny() => Allow("*");
 
         public CspDirectiveBuilder Allow(string source)
